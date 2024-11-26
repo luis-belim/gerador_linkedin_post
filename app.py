@@ -1,7 +1,9 @@
-import streamlit as stimport sqlite3
+import streamlit as st
+import sqlite3
 
 if sqlite3.sqlite_version_info < (3, 35, 0):
     raise RuntimeError("SQLite 3.35.0 ou superior é necessário. Atualize sua versão.")
+
 import os
 from agente_gerador_post_linkedin import gerar_post  # Importa o agente que gera posts
 
