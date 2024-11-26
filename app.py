@@ -1,4 +1,3 @@
-
 import streamlit as st
 from datetime import datetime
 import json
@@ -69,6 +68,18 @@ def main():
                 resultado = agente.gerar_post(tema)
                 st.subheader("Seu Post:")
                 st.write(resultado)
+
+                # Adiciona uma área de texto com o conteúdo gerado
+                st.text_area("Texto Gerado:", resultado, height=150)
+
+                # Adiciona um botão para copiar o texto gerado
+                st.download_button(
+                    label="Copiar Texto",
+                    data=resultado,
+                    file_name="post_linkedin.txt",
+                    mime="text/plain",
+                )
+
                 st.success(f"Você ainda pode gerar {remaining} posts hoje!")
             else:
                 st.error("Você atingiu o limite de 3 posts para hoje. Tente novamente amanhã!")
